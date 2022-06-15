@@ -9,16 +9,12 @@ pipeline
       
         }
         
-        stage('SonarQube Testing'){
-        steps{
-        bat 'mvn sonar:sonar -Dsonar.sources=src/ -Dsonar.host.url=http://localhost:9000 -Dsonar.login=c91a76d35e003f1d1af99856195a65522c327514'
-            }
-        }
+        
        
-        stage('Deploy Application To Mulesoft '){
+        stage('Publish to Nexus'){
         steps{
 		
-        bat 'mvn package deploy -DmuleDeploy -Danypoint.userName=OssomVictory5 -Danypoint.password=Capg@1999'
+        nexusArtifactUploader artifacts: [[artifactId: 'scattergather', classifier: '', file: 'target/scattergather-1.0.0-mule-application.jar', type: 'jar']], credentialsId: 'nexusCred', groupId: 'd00fa00a-dbd0-4f71-9676-1f95d2eba6e3', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://localhost:8081/repository/nexusDemo1/', version: '1.0.0'
         
         }
         }
