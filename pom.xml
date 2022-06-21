@@ -38,14 +38,12 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<server>${server}</server>
-						<muleVersion>4.3.0</muleVersion>
-						<username>OssomVictory6</username>
-						<password>Capg@1999</password>
-						<applicationName>Azuretrail1</applicationName>
-						<environment>Sandbox</environment>
+						<muleVersion>${app.runtime}</muleVersion>
+						<applicationName>${app.name}</applicationName>
+						<environment>${environment}</environment>
 						<businessGroup>MuleSoft</businessGroup>
-						<workers>1</workers>
-						<workerType>Micro</workerType>
+						<workers>${worker}</workers>
+						<workerType>${workerType}</workerType>
 						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
 				</configuration>
