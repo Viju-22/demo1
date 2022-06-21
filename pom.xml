@@ -41,7 +41,6 @@
 						<muleVersion>${app.runtime}</muleVersion>
 						<applicationName>${app.name}</applicationName>
 						<environment>${environment}</environment>
-						<businessGroup>Capgemini</businessGroup>
 						<workers>${worker}</workers>
 						<workerType>${workerType}</workerType>
 						<objectStoreV2>true</objectStoreV2>
