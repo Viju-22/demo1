@@ -39,7 +39,7 @@
 						<uri>https://anypoint.mulesoft.com</uri>
 						<server>${server}</server>
 						<muleVersion>4.3.0</muleVersion>
-						<username>OssomVictory5</username>
+						<username>OssomVictory6</username>
 						<password>Capg@1999</password>
 						<applicationName>Azuretrail1</applicationName>
 						<environment>Sandbox</environment>
