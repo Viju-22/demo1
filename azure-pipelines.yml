@@ -1,4 +1,5 @@
 trigger:
+- task: SonarQubeAnalyze@5
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'sonarserver'
