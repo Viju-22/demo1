@@ -12,7 +12,17 @@ variables:
 
 steps:
 
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarserver'
+    scannerMode: 'Other'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner,
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectKey=AzureCiCdDemo2_AzureCiCdDemo2
 
+- task: SonarQubeAnalyze@5
 
 - task: CacheBeta@0
   inputs:
@@ -20,7 +30,6 @@ steps:
     path: $(MAVEN_CACHE_FOLDER)
   displayName: Cache Maven local repo
   
-- task: SonarQubeAnalyze@5
 - task: DownloadSecureFile@1
   name: settingsxml
   inputs:
