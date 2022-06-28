@@ -1,5 +1,12 @@
 trigger:
-- master
+  batch: true
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - azure-pipelines.yml
+    - pom.xml
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -12,17 +19,6 @@ variables:
 
 steps:
 
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: 'sonarserver'
-    scannerMode: 'Other'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner,
-      # Put one key=value per line, example:
-      # sonar.exclusions=**/*.bin
-      sonar.projectKey=AzureCiCdDemo2_AzureCiCdDemo2
-
-- task: SonarQubeAnalyze@5
 
 - task: CacheBeta@0
   inputs:
@@ -42,6 +38,18 @@ steps:
       New-Item -Type Directory -Force "${HOME}/.m2"
       Copy-Item -Force "$(settingsxml.secureFilePath)" "${HOME}/.m2/settings.xml"
       
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarserver'
+    scannerMode: 'Other'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner,
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectKey=AzureCiCdDemo2_AzureCiCdDemo2
+
+- task: SonarQubeAnalyze@5
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
