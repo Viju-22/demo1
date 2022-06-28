@@ -1,4 +1,13 @@
 trigger:
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarserver'
+    scannerMode: 'Other'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner,
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectKey=AzureCiCdDemo2_AzureCiCdDemo2
   batch: true
   branches:
     include:
