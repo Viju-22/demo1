@@ -44,5 +44,5 @@ steps:
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     effectivePomSkip: true
-    sonarQubeRunAnalysis: false
+    sonarQubeRunAnalysis: true
     goals: 'clean install package deploy $(MAVEN_OPTS)  -DmuleDeploy -Dserver=$(server) -Denvironment=$(environment) -Dworker=$(worker) -DworkerType=$(workerType) -Dapp.runtime=$(app.runtime) -Dapp.name=$(app.name)'
