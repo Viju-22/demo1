@@ -9,7 +9,8 @@ trigger:
     - pom.xml
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: azLocalAgent 
+  vmImage: 'Agent001'
 variables:
 - group: Build-Variable-Group
 - name: MAVEN_CACHE_FOLDER
